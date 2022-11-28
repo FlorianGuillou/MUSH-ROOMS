@@ -78,10 +78,7 @@ GEM
       public_suffix (>= 2.0.2, < 6.0)
     autoprefixer-rails (10.4.7.0)
       execjs (~> 2)
-<<<<<<< HEAD
     aws_cf_signer (0.1.3)
-=======
->>>>>>> master
     bcrypt (3.1.18)
     bindex (0.8.1)
     bootsnap (1.15.0)
@@ -111,11 +108,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-<<<<<<< HEAD
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
-=======
->>>>>>> master
     dotenv (2.8.1)
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
@@ -208,14 +202,11 @@ GEM
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
-<<<<<<< HEAD
     rest-client (2.1.0)
       http-accept (>= 1.7.0, < 2.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-=======
->>>>>>> master
     rexml (3.2.5)
     rubyzip (2.3.2)
     sassc (2.4.0)
@@ -249,12 +240,9 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
-<<<<<<< HEAD
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8.2)
-=======
->>>>>>> master
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
