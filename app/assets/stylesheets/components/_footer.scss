@@ -1,26 +1,116 @@
-.footer {
-  background: #F4F4F4;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100px;
-  padding: 0px 50px;
-  color: rgba(0,0,0,0.3);
+footer{
+  background-color:#2b2d2e;
+  font-family:'Helvetica',sans-serif;
+  background-image:url('https://a0.muscache.com/airbnb/static/footer/background-317dd7c2cb678ddbdb0a983d511cb9a0.png');
+  padding-bottom:40px;
 }
-.footer-links {
-  display: flex;
-  align-items: center;
+h2,h3,h4{
+  font-weight:bolder;
 }
-.footer-links a {
-  color: black;
-  opacity: 0.15;
-  text-decoration: none;
-  font-size: 24px;
-  padding: 0px 10px;
+a{
+  text-decoration:none;
 }
-.footer-links a:hover {
-  opacity: 1;
+footer *{
+  color:white;
 }
-.footer .fa-heart {
-  color: #D23333;
+select {
+  display: block;
+  border:none;
+  margin-bottom: 16px;
+  font-weight:bold;
+  padding: 12px 20px;
+  min-width: 17em;
+  background: #666;
+  border-radius: 5px;
+}
+option{
+  padding:5px 0;
+  border-radius:5px;
+}
+.wrapper {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+.seperator{
+  display:flex;
+  padding-top:40px;
+  padding-bottom:40px;
+  border-bottom:1px solid #aaa;
+}
+.seperator:last-of-type{
+  border:none;
+}
+.seperator.column{
+  flex-direction:column;
+}
+.seperator.padded{
+  padding-right:100px;
+  padding-left:100px;
+}
+.col-2{
+  flex-grow:1.5;
+}
+.col-1{
+  flex-grow:1;
+  font-size:0.9em;
+}
+.col-1 h3{
+  font-size:1.3em;
+  margin-bottom:1em;
+}
+.col-1 a{
+  display:inline-block;
+  margin-bottom:5px;
+  font-size:0.9em;
+  letter-spacing:0.03em;
+}
+footer{
+}
+.text-center{
+  text-align:center;
+}
+.margin-below-1{
+  margin-bottom:1em;
+}
+footer a:hover{
+  color:#ccc;
+}
+.smedialinks i{
+  display:inline-block;
+  width:16px;
+  height:16px;
+  font-size:0.9em;
+  background:#333;
+  padding:8px;
+  border:1px solid white;
+  border-radius:50%;
+  margin-left:20px;
+}
+.copyright{
+  text-align:center;
+  color:grey;
+  font-size:0.9em;
+  letter-spacing:0.01;
+}
+ i:hover{
+  opacity:0.8;
+  cursor:pointer;
+}
+@media (max-width:750px){
+  .seperator{
+    flex-direction:column;
+  }
+  .col-1,.col-1 h3{
+    display:none;
+  }
+  .col-1.first{
+    display:block;
+  }
+  footer{
+    text-align:center;
+  }
+  select{
+    margin-left:auto;
+    margin-right:auto;
+  }
 }
