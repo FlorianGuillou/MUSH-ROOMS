@@ -86,3 +86,6 @@ gem "cloudinary"
 
 # Gem devise
 gem "devise"
+
+# Gem pundit
+gem "pundit"
