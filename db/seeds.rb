@@ -19,3 +19,9 @@ price = [*(10..100)]
 end
 
 puts 'Done!'
+
+# seed users
+
+User.destroy_all
+puts 'Create data...'
+User.create!(name: "Greedy", email: "greedy@smufrs.com", password: "12345678")
