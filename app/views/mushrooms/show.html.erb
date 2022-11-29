@@ -1,3 +1,4 @@
+
 <div class="container my-5">
   <div class="row">
     <div class="col-md-6 col-sm-12">
@@ -26,3 +27,11 @@
   <button name="add_to_cart" type="submit" class="btn btn-primary btn-lg  float-right">Add to cart</button>
   </form>
 </div>
+
+<h1><%= @mushroom.name %></h1>
+<% if policy(@mushroom).edit? %>
+  <%= link_to "Edit this mushroom", edit_mushroom_path(@mushroom) %> |
+<% end %>
+<!-- [...] -->
+<%= button_to "Destroy this mushroom", @mushroom, method: :delete if policy(@mushroom).destroy? %>
+

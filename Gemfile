@@ -79,10 +79,13 @@ group :test do
 end
 
 # Gem dotenv
-# gem "dotenv-rails", groups: [:development, :test]
+gem "dotenv-rails", groups: [:development, :test]
 
 # Gem cloudinary
 gem "cloudinary"
 
 # Gem devise
 gem "devise"
+
+# Gem pundit
+gem "pundit"
