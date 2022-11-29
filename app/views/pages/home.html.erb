@@ -1,5 +1,6 @@
 
 <%= render "shared/header" %>
+
 <div class="cards" >
   <% @mushrooms.each do |mushroom|%>
     <div class="card" style="width: 18rem">
@@ -10,6 +11,11 @@
           <p class="card-text">
             <%= mushroom.category %>
             <%= mushroom.color%>
+            <%= link_to new_booking_path do%>
+            <div class="container">
+              <button class="btn btn-primary">Mush Me</button>
+            </div>
+            <% end %>
           </p>
         </div>
     </div>
