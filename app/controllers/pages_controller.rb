@@ -2,6 +2,6 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
   def home
-    @mushrooms = Mushroom.all
+    @mushrooms = policy_scope(Mushroom)
   end
 end
