@@ -1,7 +1,9 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+  
+    <%= link_to "/", class: "navbar-brand" do %>
+    <%= image_tag "logo.png" %>
+      <span class="logo-title">mushRooms</span>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,8 +16,11 @@
           <li class="nav-item active">
             <%= link_to "Home", "#", class: "nav-link" %>
           </li>
+          <li class="nav-item active">
+            <%= link_to "Rent", "#", class: "nav-link" %>
+          </li>
           <li class="nav-item">
-            <%= link_to "Login", "#", class: "nav-link" %>
+            <%= link_to "Host", "#", class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
