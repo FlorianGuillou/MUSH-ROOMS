@@ -1,5 +1,13 @@
-<%= render "shared/header" %>
-  <h1>Pages#home</h1>
-  <p>Find me in app/views/pages/home.html.erb</p>
 
-  <h1>Hola</h1>
+<%= render "shared/header" %>
+  <div class="cards" >
+    <%# <% @mushrooms.each do |mushroom| %>
+      <div class="card" style="width: 18rem;">
+          <%# <%= cl_image_tag mushroom.photo.key, crop: :fill, height: 150, width: 200, class:"card-img-top" %>
+          <div class="card-body">
+            <h2 class="card-title">titre de notre mashroom<%#<%= link_to mushroom.name, mushroom_path(mushroom) %></h2>
+            <p class="card-text">description de notre mashroom<%#<%= mushroom.description %></p>
+          </div>
+      </div>
+    <%# <% end %­>%>
+</div>
