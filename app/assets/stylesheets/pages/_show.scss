@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+}
+
+
+.description-container {
+  position: relative;
+  height: 900px;
+}
+
+.main-description {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.main-description h3 {
+  font-size: 2rem;
+}
+
+.add-inputs,
+.add-inputs input {
+  width: 100%;
+  text-align: right;
+}
+
+.add-inputs button {
+  border-radius: 0;
+}
+
+.add-inputs input {
+  height: 48px;
+  width: 65px;
+  border-radius: 0;
+}
+
+
+.product-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.product-price {
+  font-size: 1.8rem;
+}
+
+.col {
+  margin: 80px;
+}
