@@ -1,1 +1,35 @@
-// Specific CSS for your home-page
+.btn-base {
+  border: 1px solid #3498DB;
+  background: none;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-family: 'Trebuchet MS';
+  cursor: pointer;
+  margin: 10px;
+  transition: 0.8s;
+  position: relative;
+  overflow: hidden;
+}
+.btn-cover {
+  color: #3498DB;
+}
+.btn-cover:hover {
+  color: #fff;
+}
+.btn-base::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: #3498DB;
+  z-index: -1;
+  transition: 0.8s;
+}
+.btn-cover::before {
+  top: 0;
+  border-radius: 0 0 50% 50%;
+}
+.btn-base:hover::before {
+  height: 180%;
+}
