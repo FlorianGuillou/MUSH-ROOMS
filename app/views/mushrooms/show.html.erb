@@ -1,1 +1,6 @@
 <h1><%= @mushroom.name %></h1>
+<% if policy(@mushroom).edit? %>
+  <%= link_to "Edit this restaurant", edit_restaurant_path(@mushroom) %> |
+<% end %>
+<!-- [...] -->
+<%= button_to "Destroy this restaurant", @mushroom, method: :delete if policy(@mushroom).destroy? %>
