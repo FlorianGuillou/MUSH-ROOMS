@@ -9,6 +9,14 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "name" }%>
+    <%= f.input :avatar, as: :file,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "avatar" } %>
+    <%= f.input :description,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "description" } %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
