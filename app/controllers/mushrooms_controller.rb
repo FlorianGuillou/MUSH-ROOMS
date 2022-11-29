@@ -23,10 +23,12 @@ class MushroomsController < ApplicationController
   end
 
   def edit
+    @mushroom = Mushroom.find(params[:id])
     authorize @mushroom
   end
 
   def update
+    @mushroom = Mushroom.find(params[:id])
     authorize @mushroom
   end
 
