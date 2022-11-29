@@ -1,7 +1,6 @@
 class MushroomsController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
 
-
   def show
     @mushroom = Mushroom.find(params[:id])
     authorize @mushroom
@@ -24,10 +23,12 @@ class MushroomsController < ApplicationController
   end
 
   def edit
+    @mushroom = Mushroom.find(params[:id])
     authorize @mushroom
   end
 
   def update
+    @mushroom = Mushroom.find(params[:id])
     authorize @mushroom
   end
 
