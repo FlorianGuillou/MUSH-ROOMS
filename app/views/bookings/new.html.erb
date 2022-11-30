@@ -1,4 +1,4 @@
-<%= simple_form_for @booking do |f| %>
+<%= simple_form_for [@mushroom, @booking] do |f| %>
   <%= f.input :start_date, as: :date, html5: true %>
   <%= f.input :end_date, as: :date, html5: true %>
   <%= f.input :comment %>
