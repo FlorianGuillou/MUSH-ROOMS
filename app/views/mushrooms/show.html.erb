@@ -9,9 +9,8 @@
      <% else %>
         <% image_tag('champignon.jpg', :class => "card-img-top") %>
       <% end %>
-
     </div>
-    <div class="col-md-6 col-sm-12">
+    <div class="col-md-6 col-sm-12 p5">
       <div class="card-title">
         <h1><%= @mushroom.name %></h1>
         <p class="card-text">Address : <%= @mushroom.address %></p>
@@ -28,8 +27,6 @@
     <div class="col"> <span class="card-subtitle">Eatable? </span><%= @mushroom.eatable %></div>
     <% if user_signed_in? %>
       <div class="add-inputs mb-2">
-      <%= link_to "Rent this mushRoom", new_user_session_path, class: "btn btn-primary btn-lg  float-right" %>
-      </div>
       <% if policy(@mushroom).edit? %>
 
         <div class="add-inputs">
@@ -37,6 +34,10 @@
         <br>
         <%= button_to "Destroy this mushRoom", @mushroom, class:"btn btn-danger btn-lg float-right mt-2", method: :delete if policy(@mushroom).destroy?%>
         </div>
+        <% else%>
+        <div class="add-inputs">
+          <%= link_to "Rent this mushRoom", new_mushroom_booking_path(@mushroom.id), class: "btn btn-primary btn-lg  float-right mt-3" %>
+      </div> 
       <% end %>
     <% else %>
       <div class="add-inputs">
