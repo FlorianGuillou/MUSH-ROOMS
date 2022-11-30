@@ -1,0 +1,27 @@
+<div class="cards" >
+  <% @mushrooms.each do |mushroom|%>
+    <div class="card" style="width: 18rem">
+        <div class="card-body">
+          <h2 class="card-title">
+            <%= link_to mushroom.name, mushroom_path(mushroom)%>
+          </h2>
+          <p class="card-text">
+            <%= mushroom.category %>
+            <%= mushroom.color%>
+            <%= link_to new_booking_path do%>
+            <div class="container">
+              <button class="btn btn-primary">Mush Me</button>
+            </div>
+            <% end %>
+          </p>
+        </div>
+    </div>
+  <% end %>
+  <div class="card" style="width: 18rem">
+    <%= link_to new_mushroom_path do%>
+      <i class="fa-regular fa-square-plus"></i>
+    <% end %>
+  </div>
+</div>
+
+<%# <%= cl_image_tag mushroom.photo.key, crop: :fill, height: 150, width: 200, class:"card-img-top" %>
