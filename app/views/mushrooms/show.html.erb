@@ -1,52 +1,42 @@
-<div class="container my-5">
-  <div class="row">
+<div class="container pt-5">
+  <div class="row card-large">
     <div class="col-md-6 col-sm-12">
-      <img class="img-fluid details-img" src="https://images.unsplash.com/photo-1505820013142-f86a3439c5b2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80" alt="">
+      <%= image_tag('champignon.jpg', :class => "card-img-top") %>
     </div>
     <div class="col-md-6 col-sm-12">
-      <div class="main-description">
-
-        <p class="product-category mb-0">        Mushroom adress #Lot</p>
-        <h3>Mushroom type</h3>
-        <p class="product-price">mushroom price$$$</p>
-
-        <p class="product-title mt-4 mb-1">What you get</p>
-        <p class="product-description mb-4">
-        Mushroom description lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam mauris, eget aliquam nunc nisl eget nunc. Donec auctor, nisl eget ultricies tincidunt, nunc nisl aliquam mauris, eget aliquam nunc nisl eget nunc.
-        </p>
+      <div class="card-title">
+        <h1><%= @mushroom.name %></h1>
+        <p class="card-text">Address : <%= @mushroom.address %></p>
+        <p class="card-price"><%= @mushroom.price %> $</p>
+        <p class="card-title mt-4 mb-1"><%= @mushroom.category %></p>
+        <p class="card-title mt-4 mb-1">A little bit more about this mushRoom</p>
+        <p class="card-description mb-4"><%= @mushroom.description %></p>
     </div>
    </div>
   </div> 
-  <div class="row">
-    <div class="col">Mush color icon</div>
-    <div class="col">Mush trippy icon</div>
-    <div class="col">Mush eatable icon</div>
+  <div class="row card-large">
+    <div class="col"> <span class="card-subtitle"> Color: </span><%= @mushroom.color %></div>
+    <div class="col"> <span class="card-subtitle">Owner: </span><%= @mushroom.user.name %></div>
+    <div class="col"> <span class="card-subtitle">Eatable? </span><%= @mushroom.eatable %></div>
+    <% if user_signed_in? %>
+      <div class="add-inputs mb-2">
+      <%= link_to "Rent this mushRoom", new_user_session_path, class: "btn btn-primary btn-lg  float-right" %>
+      </div>
+      <% if policy(@mushroom).edit? %>
+      
+        <div class="add-inputs">
+        <%= link_to "Edit this mushRoom", edit_mushroom_path(@mushroom), class:"btn btn-primary btn-lg  float-right" %>
+        <br>
+        <%= button_to "Destroy this mushRoom", @mushroom, class:"btn btn-danger btn-lg float-right mt-2", method: :delete if policy(@mushroom).destroy?%>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="add-inputs">
+        <%= link_to "Login to rent", new_user_session_path, class: "btn btn-primary btn-lg  float-right" %>
+      </div>
+      <div class="add-inputs mt-2">
+        <%= link_to "Register to rent", new_user_registration_path, class: "btn btn-primary btn-lg  float-right" %>
+      </div>
+    <% end %>
   </div>
-  <form class="add-inputs" method="post">
-  <button name="add_to_cart" type="submit" class="btn btn-primary btn-lg  float-right">Add to cart</button>
-  </form>
 </div>
-
-<h1><%= @mushroom.name %></h1>
-
-<div class="container">
-  <h1><%= @mushroom.name %></h1>
-  <div class="card mb-3">
-    <%= image_tag('champignon.jpg', :class => "card-img-top") %>
-    <div class="card-body">
-      <h5 class="card-title">Category : <%= @mushroom.category %></h5>
-      <p class="card-text">Color : <%= @mushroom.color %></p>
-      <p class="card-text">Owner : <%= @mushroom.user.name %></p>
-      <p class="card-text">Address : <%= @mushroom.address %></p>
-      <p class="card-text">Description : <%= @mushroom.description %></p>
-      <p class="card-text"><small class="text-muted">Price : <%= @mushroom.price %> gold coin</small></p>
-    </div>
-  </div>
-</div>
-
-<% if policy(@mushroom).edit? %>
-  <%= link_to "Edit this mushroom", edit_mushroom_path(@mushroom) %> |
-<% end %>
-<!-- [...] -->
-<%= button_to "Destroy this mushroom", @mushroom, method: :delete if policy(@mushroom).destroy? %>
-
