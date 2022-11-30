@@ -1,9 +1,8 @@
 class MushroomsController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
+  before_action :set_mushroom, only: %i[show edit update destroy]
 
   def show
-    @mushroom = Mushroom.find(params[:id])
-    authorize @mushroom
   end
 
   def new
@@ -23,23 +22,27 @@ class MushroomsController < ApplicationController
   end
 
   def edit
-    @mushroom = Mushroom.find(params[:id])
-    authorize @mushroom
   end
 
   def update
-    @mushroom = Mushroom.find(params[:id])
-    authorize @mushroom
+    if @mushroom.update(mushroom_params)
+      redirect_to @mushroom, notice: "Your MushRoom was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
-    @mushroom = Mushroom.find(params[:id])
-    authorize @mushroom
     @mushroom.destroy
     redirect_to root_path, status: :see_other
   end
 
   private
+
+  def set_mushroom
+    @mushroom = Mushroom.find(params[:id])
+    authorize @mushroom
+  end
 
   def mushroom_params
     params.require(:mushroom).permit(:category, :color, :price, :description, :photo, :address, :name, :trippy, :eatable)
