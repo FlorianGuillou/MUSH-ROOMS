@@ -11,7 +11,7 @@
     <%= f.input :eatable, :label => 'Eatable', :value => true %>
     <%= f.input :description, placeholder: "Description" %>
     <%= f.input :price, placeholder: "Price" %>
-    <%= f.input :image, placeholder: "Photo", as: :file %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   </div>
 
   <%= f.button :submit, "Update MushRoom", class: "logbtn" %>

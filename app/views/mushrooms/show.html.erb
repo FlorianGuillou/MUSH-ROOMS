@@ -1,7 +1,15 @@
 <div class="container pt-5">
   <div class="row card-large">
     <div class="col-md-6 col-sm-12">
-      <%= image_tag('champignon.jpg', :class => "card-img-top") %>
+
+      <% if @mushroom.photos.attached? %>
+      <% @mushroom.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class:  "card-img-top" %>
+      <% end %>
+     <% else %>
+        <% image_tag('champignon.jpg', :class => "card-img-top") %>
+      <% end %>
+
     </div>
     <div class="col-md-6 col-sm-12">
       <div class="card-title">
@@ -13,7 +21,7 @@
         <p class="card-description mb-4"><%= @mushroom.description %></p>
     </div>
    </div>
-  </div> 
+  </div>
   <div class="row card-large">
     <div class="col"> <span class="card-subtitle"> Color: </span><%= @mushroom.color %></div>
     <div class="col"> <span class="card-subtitle">Owner: </span><%= @mushroom.user.name %></div>
@@ -23,7 +31,7 @@
       <%= link_to "Rent this mushRoom", new_user_session_path, class: "btn btn-primary btn-lg  float-right" %>
       </div>
       <% if policy(@mushroom).edit? %>
-      
+
         <div class="add-inputs">
         <%= link_to "Edit this mushRoom", edit_mushroom_path(@mushroom), class:"btn btn-primary btn-lg  float-right" %>
         <br>
