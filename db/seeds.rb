@@ -1,11 +1,17 @@
+require "open-uri"
+
 puts 'Clear DB..'
 
 Mushroom.destroy_all
 User.destroy_all
 
+file = URI.open("https://pyxis.nymag.com/v1/imgs/188/b26/44452f4a73fd2a6cb18f27c644c5c7a1f0-9-smurfs-1.rsquare.w700.jpg")
+
 puts 'Create data...'
-greedy = User.create!(name: "Greedy", email: "greedy@smufrs.com", password: "12345678", avatar: "smurf.png")
-grand = User.create!(name: "Grand", email: "grand@smufrs.com", password: "12345678", avatar: "smurf.png")
+greedy = User.create!(name: "Greedy", email: "greedy@smufrs.com", password: "12345678")
+greedy.avatar.attach(io: file, filename: "smurf.jpg", content_type: "image/jpg")
+greedy.save
+# grand = User.create!(name: "Grand", email: "grand@smufrs.com", password: "12345678")
 puts "Done user"
 
 puts 'Create data...'
