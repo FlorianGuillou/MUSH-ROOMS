@@ -18,12 +18,21 @@
     <div class="col"> <span class="card-subtitle"> Color: </span><%= @mushroom.color %></div>
     <div class="col"> <span class="card-subtitle">Owner: </span><%= @mushroom.user.name %></div>
     <div class="col"> <span class="card-subtitle">Eatable? </span><%= @mushroom.eatable %></div>
-    <% if policy(@mushroom).edit? %>
-    <div class="add-inputs">
-    <%= link_to "Edit this mushroom", edit_mushroom_path(@mushroom), class:"btn btn-primary btn-lg  float-right" %>
-    <br>
-    <%= button_to "Destroy this mushroom", @mushroom, class:"btn btn-primary btn-lg  float-right mt-1", method: :delete if policy(@mushroom).destroy?%>
-    </div>
+    <% if user_signed_in? %>
+      <% if policy(@mushroom).edit? %>
+        <div class="add-inputs">
+        <%= link_to "Edit this mushroom", edit_mushroom_path(@mushroom), class:"btn btn-primary btn-lg  float-right" %>
+        <br>
+        <%= button_to "Destroy this mushroom", @mushroom, class:"btn btn-primary btn-lg  float-right mt-2", method: :delete if policy(@mushroom).destroy?%>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="add-inputs">
+        <%= link_to "Login to rent", new_user_session_path, class: "btn btn-primary btn-lg  float-right" %>
+      </div>
+      <div class="add-inputs mt-2">
+        <%= link_to "Register to rent", new_user_registration_path, class: "btn btn-primary btn-lg  float-right" %>
+      </div>
     <% end %>
   </div>
 </div>
