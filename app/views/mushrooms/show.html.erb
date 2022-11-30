@@ -27,7 +27,7 @@
         <div class="add-inputs">
         <%= link_to "Edit this mushRoom", edit_mushroom_path(@mushroom), class:"btn btn-primary btn-lg  float-right" %>
         <br>
-        <%= button_to "Destroy this mushRoom", @mushroom, class:"btn btn-primary btn-lg  float-right mt-2", method: :delete if policy(@mushroom).destroy?%>
+        <%= button_to "Destroy this mushRoom", @mushroom, class:"btn btn-danger btn-lg float-right mt-2", method: :delete if policy(@mushroom).destroy?%>
         </div>
       <% end %>
     <% else %>
