@@ -42,6 +42,6 @@ class MushroomsController < ApplicationController
   private
 
   def mushroom_params
-    params.require(:mushroom).permit(:category, :color, :price, :description, :photo, :address, :name)
+    params.require(:mushroom).permit(:category, :color, :price, :description, :photo, :address, :name, :trippy, :eatable)
   end
 end
