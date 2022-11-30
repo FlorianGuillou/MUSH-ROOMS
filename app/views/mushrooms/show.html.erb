@@ -19,11 +19,15 @@
     <div class="col"> <span class="card-subtitle">Owner: </span><%= @mushroom.user.name %></div>
     <div class="col"> <span class="card-subtitle">Eatable? </span><%= @mushroom.eatable %></div>
     <% if user_signed_in? %>
+      <div class="add-inputs mb-2">
+      <%= link_to "Rent this mushRoom", new_user_session_path, class: "btn btn-primary btn-lg  float-right" %>
+      </div>
       <% if policy(@mushroom).edit? %>
+      
         <div class="add-inputs">
-        <%= link_to "Edit this mushroom", edit_mushroom_path(@mushroom), class:"btn btn-primary btn-lg  float-right" %>
+        <%= link_to "Edit this mushRoom", edit_mushroom_path(@mushroom), class:"btn btn-primary btn-lg  float-right" %>
         <br>
-        <%= button_to "Destroy this mushroom", @mushroom, class:"btn btn-primary btn-lg  float-right mt-2", method: :delete if policy(@mushroom).destroy?%>
+        <%= button_to "Destroy this mushRoom", @mushroom, class:"btn btn-primary btn-lg  float-right mt-2", method: :delete if policy(@mushroom).destroy?%>
         </div>
       <% end %>
     <% else %>
