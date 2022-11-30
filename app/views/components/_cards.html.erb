@@ -1,25 +1,26 @@
-<div class="cards" >
-  <% @mushrooms.each do |mushroom|%>
-    <div class="card" style="width: 18rem">
-        <div class="card-body">
-          <h2 class="card-title">
-            <%= link_to mushroom.name, mushroom_path(mushroom)%>
-          </h2>
-          <p class="card-text">
-            <%= mushroom.category %>
-            <%= mushroom.color%>
-            <%= link_to new_booking_path do%>
-            <div class="container">
-              <button class="btn btn-primary">Mush Me</button>
+ <div class="container">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <% @mushrooms.each do |mushroom| %>
+      <div class="col">
+          <div class="card">
+            <img src="https://images.pexels.com/photos/1685618/pexels-photo-1685618.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="card-img-top" alt="<%= mushroom.name %>">
+            <div class="card-body">
+              <h5 class="card-title"><%= link_to mushroom.name, mushroom_path(mushroom)%></h5>
+              <p class="card-text"><%= mushroom.description %></p>
+              <p class="card-text">Price : <%= mushroom.price %></p>
+              <%= link_to new_mushroom_booking_path do %>
+                <div class="text-end" style="width: 18rem;">
+                  <button class="btn btn-primary">Mush Me</button>
+                </div>
+              <% end %>
             </div>
-            <% end %>
-          </p>
-        </div>
-    </div>
-  <% end %>
-  <div class="card" style="width: 18rem">
-    <%= link_to new_mushroom_path do%>
-      <i class="fa-regular fa-square-plus"></i>
+            <div class="card-footer">
+              <small class="text-muted"></small>
+              <p>No review yet !</p>
+            <%# ajouter la moyenne des notes de reviews dans le futur %>
+            </div>
+          </div>
+      </div>
     <% end %>
   </div>
 </div>
