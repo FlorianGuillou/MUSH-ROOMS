@@ -9,7 +9,7 @@
               <h5 class="card-title"><%= link_to mushroom.name, mushroom_path(mushroom)%></h5>
               <p class="card-text"><%= mushroom.description %></p>
               <p class="card-text">Price : <%= mushroom.price %></p>
-              <%= link_to new_mushroom_booking_path do %>
+              <%= link_to new_mushroom_booking_path(mushroom.id) do %>
                 <div class="text-end" style="width: 18rem;">
                   <button class="btn btn-primary">Mush Me</button>
                 </div>
