@@ -2,7 +2,7 @@
   <div class="txtbtn">
     <%= simple_form_for @mushroom do |f|  %>
       <%= f.input :name, placeholder: "Name" %>
-      <%= f.input :category, placeholder: "Catégorie" %>
+      <%= f.input :category, :collection => %w[Truffle Puffball Chanterelles Bolete], placeholder: "Catégorie" %>
       <%= f.input :color, placeholder: "Couleur" %>
       <%= f.input :address, placeholder: "Location" %>
       <%= f.input :trippy, :label => 'Trippy', :value => true %>
