@@ -1,12 +1,30 @@
-<%= simple_form_for @mushroom do |f| %>
-  <%= f.input :name %>
-  <%= f.input :address %>
-  <%= f.input :category %>
-  <%= f.input :color %>
-  <%= f.input :price %>
-  <%= f.input :trippy, :label => 'Trippy', :value => true %>
-  <%= f.input :eatable, :label => 'Eatable', :value => true %>
-  <%= f.input :description %>
-  <%= f.input :photo, as: :file %>
-  <%= f.button :submit %>
-<% end %>
+<div class="login-form">
+  <div class="txtbtn">
+    <%= simple_form_for @mushroom do |f|  %>
+    <%= f.input :name, placeholder: "Name" %>
+    <%= f.input :category, placeholder: "Catégorie" %>
+    <%= f.input :color, placeholder: "Couleur" %>
+    <%= f.input :address, placeholder: "Location" %>
+    <%= f.input :trippy, :label => 'Trippy', :value => true %>
+    <%= f.input :eatable, :label => 'Eatable', :value => true %>
+    <%= f.input :description, placeholder: "Description" %>
+    <%= f.input :price, placeholder: "Price" %>
+    <%= f.input :image, placeholder: "Photo", as: :file %>
+    <%= f.button :submit, "Create Mushroom", class: "logbtn" %>
+    <% end %>
+  </div>
+  <div class="bottom-text">
+     Don't have account? <%= link_to "Sign up", new_user_registration_path %>
+  </div>
+</div>
+
+<script type="text/javascript">
+$(".txtb input").on("focus",function(){
+  $(this).addClass("focus");
+ });
+
+ $(".txtb input").on("blur",function(){
+  if($(this).val() == "")
+  $(this).removeClass("focus");
+});
+</script>
