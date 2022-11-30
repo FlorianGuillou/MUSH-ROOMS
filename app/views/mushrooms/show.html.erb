@@ -4,7 +4,7 @@
 
       <% if @mushroom.photos.attached? %>
       <% @mushroom.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class:  "card-img-top" %>
+          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: "card-img-top" %>
       <% end %>
      <% else %>
         <% image_tag('champignon.jpg', :class => "card-img-top") %>
