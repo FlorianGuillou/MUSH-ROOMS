@@ -1,11 +1,12 @@
 class BookingsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index, :show ]
+  skip_before_action :authenticate_user!, only: %i[index show]
   # skip_after_action :verify_policy_scoped, only: :index
-  before_action :set_booking, only: [ :show ]
-  before_action :set_mushroom, only: [ :new, :create ]
+  before_action :set_booking, only: [:show]
+  before_action :set_mushroom, only: [:new, :create, :show]
 
   def index
-    @bookings = current_user.bookings
+    @bookings = Booking.where(user: current_user)
+    authorize @bookings
   end
 
   def show
