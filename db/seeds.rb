@@ -20,6 +20,8 @@ category = ['chapeau', 'boule', 'etoile']
 color = ['rouge', 'marron', 'bleu', 'violet']
 price = [*(10..100)]
 
+
+
 5.times do
   mushroom = Mushroom.new(
     name: name.sample,
@@ -27,10 +29,11 @@ price = [*(10..100)]
     color: color.sample,
     price: price.sample,
     user_id: greedy.id,
-    photo_url: "champignon.jpg",
     address: "Champignon derrière le menhir",
     description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
   )
+  # photo = URI.open("https://images.pexels.com/photos/1685618/pexels-photo-1685618.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
+  # mushroom.photo_url.attach(io: photo, filename: "champignon.jpg", content_type: "image/jpg")
   mushroom.save!
 end
 
