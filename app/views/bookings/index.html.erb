@@ -1,18 +1,4 @@
-<h1>MyMush Booked</h1>
-
-<div class="cards" >
-  <% @bookings.each do |booking| %>
-      <div class="card" style="width: 18rem">
-          <div class="card-body">
-            <p class="card-text">
-              <%= booking.mushroom.name %>
-              <%= booking.mushroom.category %>
-              <%= booking.mushroom.color %>
-              <%= booking.mushroom.price %>
-              <%= booking.mushroom.address %>
-              <%= booking.status %>
-            </p>
-          </div>
-      </div>
-    <% end %>
+<div class="container mymush">
+  <p>My MushBooked</p>
 </div>
+<%= render "components/cardsbooked" %>

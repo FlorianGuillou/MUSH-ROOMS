@@ -1,32 +1,4 @@
-<h1>My Mush</h1>
-
-<div class="container">
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-    <% @mushrooms.each do |mushroom| %>
-      <div class="col">
-          <div class="card">
-            <% if mushroom.photos.attached? %>
-              <%= cl_image_tag mushroom.photos.first.key, crop: :fill, class: "card-img-top" %>
-            <% else %>
-              <% image_tag('champignon.jpg', :class => "card-img-top") %>
-            <% end %>
-            <div class="card-body">
-              <h2 class="card-title"><%= link_to mushroom.name, mushroom_path(mushroom)%></h2>
-              <p class="card-text"><%= mushroom.description.truncate(200, separator: " ") %></p>
-              <br>
-              <p class="card-text"><strong>Price : <%= mushroom.price %> Gold Coins</strong></p>
-              <% mushroom.bookings.each do |booking| %>
-                <% if booking.pending? %>
-                  <%# <button class="btn btn-primary">Accepter reservation</button> %>
-                  <%= link_to edit_booking_path(booking)do %>
-                    <button class="btn btn-primary">Accepter réservation</button>
-                  <% end %>
-                <% end %>
-              <% end %>
-              </div>
-            </div>
-          </div>
-      </div>
-    <% end %>
-  </div>
+<div class="container mymush">
+  <p>My Mush</p>
 </div>
+<%= render "components/cardsmymush" %>

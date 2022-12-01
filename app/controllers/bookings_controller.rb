@@ -1,8 +1,8 @@
 class BookingsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   # skip_after_action :verify_policy_scoped, only: :index
-  before_action :set_booking, only: [:show, :update]
-  before_action :set_mushroom, only: [:new, :create, :show, :update]
+  before_action :set_booking, only: [:show, :update, :edit]
+  before_action :set_mushroom, only: [:new, :create, :show]
 
   def index
     @bookings = Booking.where(user: current_user)
@@ -32,7 +32,7 @@ class BookingsController < ApplicationController
 
   def edit
     authorize @booking
-    @booking.active!
+    @booking.approuver!
   end
 
   def update
