@@ -24,14 +24,24 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.mushroom = @mushroom
     if @booking.save
-      redirect_to root_path, notice: 'Your MushROOM has been booked.'
+      redirect_to root_path, notice: 'Ask for hosting sent!'
     else
       render :new, status: :unprocessable_entity
     end
   end
 
-  def update
+  def edit
+    authorize @booking
     @booking.active!
+  end
+
+  def update
+    authorize @booking
+    if @booking.update(booking_params)
+      redirect_to root_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   private
@@ -45,6 +55,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :comment, :mushroom_id, :user_id)
+    params.require(:booking).permit(:start_date, :end_date, :comment, :mushroom_id, :user_id, :status)
   end
 end

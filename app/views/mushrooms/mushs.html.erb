@@ -17,7 +17,10 @@
               <p class="card-text"><strong>Price : <%= mushroom.price %> Gold Coins</strong></p>
               <% mushroom.bookings.each do |booking| %>
                 <% if booking.pending? %>
-                  <button class="btn btn-primary">Accepter reservation</button>
+                  <%# <button class="btn btn-primary">Accepter reservation</button> %>
+                  <%= link_to edit_booking_path(booking)do %>
+                    <button class="btn btn-primary">Accepter réservation</button>
+                  <% end %>
                 <% end %>
               <% end %>
               </div>
