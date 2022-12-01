@@ -27,14 +27,14 @@
     <% if user_signed_in? %>
       <div class="add-inputs my-3">
       <% if policy(@mushroom).edit? %>
-        <div class="add-inputs">
+        <div class="add-inputs  button-show-page">
         <%= link_to "Edit this mushRoom", edit_mushroom_path(@mushroom), class:"btn btn-primary btn-lg  float-right" %>
         <%= button_to "Destroy this mushRoom", @mushroom, class:"btn btn-danger btn-lg float-right mt-2", method: :delete if policy(@mushroom).destroy?%>
         </div>
         <% else%>
         <div class="add-inputs">
           <%= link_to "Rent this mushRoom", new_mushroom_booking_path(@mushroom.id), class: "btn btn-primary btn-lg  float-right mt-3" %>
-      </div> 
+      </div>
       <% end %>
     <% else %>
       <div class="add-inputs">
