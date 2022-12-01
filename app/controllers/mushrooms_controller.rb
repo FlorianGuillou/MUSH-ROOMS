@@ -2,6 +2,12 @@ class MushroomsController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
   before_action :set_mushroom, only: %i[show edit update destroy]
 
+  def mushs
+    @mushrooms = Mushroom.where(user: current_user)
+    @bookings = Booking.where(mushroom_id: @mushrooms)
+    authorize @mushrooms
+  end
+
   def show
   end
 

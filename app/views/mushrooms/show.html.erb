@@ -1,49 +1,70 @@
 <div class="container pt-5">
   <div class="row card-large">
     <div class="col-md-6 col-sm-12">
-
       <% if @mushroom.photos.attached? %>
-      <% @mushroom.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: "card-img-top" %>
-      <% end %>
-     <% else %>
-        <% image_tag('champignon.jpg', :class => "card-img-top") %>
+        <% if @mushroom.photos.count > 1 %>
+          <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+            <% @mushroom.photos.each do |photo| %>
+              <div class="carousel-item active">
+                <%= cl_image_tag photo.key, height: 400, class: "d-block w-100" %>
+              </div>
+              <% end %>
+            </div>
+            <button class="carousel-control-prev text-info" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        <% else %>
+          <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+            <% @mushroom.photos.each do |photo| %>
+              <div class="carousel-item active">
+                <%= cl_image_tag photo.key, height: 400, class: "d-block w-100" %>
+              </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <%= image_tag('champignon.jpg', :class => "card-img-top") %>
       <% end %>
     </div>
     <div class="col-md-6 col-sm-12 p5">
       <div class="card-title">
         <h1><%= @mushroom.name %></h1>
         <p class="card-text">Address : <%= @mushroom.address %></p>
-        <p class="card-price"><%= @mushroom.price %> $</p>
-        <p class="card-title mt-4 mb-1"><%= @mushroom.category %></p>
-        <p class="card-title mt-4 mb-1">A little bit more about this mushRoom</p>
+        <p class="card-price mt-2"><%= @mushroom.price %> Gold Coins</p>
+        <p class="card-title mt-2"><%= @mushroom.category %></p>
+        <p class="card-title mt-4">A little bit more about this mushRoom</p>
         <p class="card-description mb-4"><%= @mushroom.description %></p>
-    </div>
+      </div>
    </div>
   </div>
-  <div class="row card-large">
+  <div class="row card-large mt-4">
     <div class="col"> <span class="card-subtitle"> Color: </span><%= @mushroom.color %></div>
     <div class="col"> <span class="card-subtitle">Owner: </span><%= @mushroom.user.name %></div>
     <div class="col"> <span class="card-subtitle">Eatable? </span><%= @mushroom.eatable %></div>
     <% if user_signed_in? %>
-      <div class="add-inputs mb-2">
+      <div class="add-inputs my-3">
       <% if policy(@mushroom).edit? %>
-
-        <div class="add-inputs">
+        <div class="add-inputs  button-show-page">
         <%= link_to "Edit this mushRoom", edit_mushroom_path(@mushroom), class:"btn btn-primary btn-lg  float-right" %>
-        <br>
         <%= button_to "Destroy this mushRoom", @mushroom, class:"btn btn-danger btn-lg float-right mt-2", method: :delete if policy(@mushroom).destroy?%>
         </div>
         <% else%>
         <div class="add-inputs">
           <%= link_to "Rent this mushRoom", new_mushroom_booking_path(@mushroom.id), class: "btn btn-primary btn-lg  float-right mt-3" %>
-      </div> 
+      </div>
       <% end %>
     <% else %>
       <div class="add-inputs">
         <%= link_to "Login to rent", new_user_session_path, class: "btn btn-primary btn-lg  float-right" %>
-      </div>
-      <div class="add-inputs mt-2">
         <%= link_to "Register to rent", new_user_registration_path, class: "btn btn-primary btn-lg  float-right" %>
       </div>
     <% end %>

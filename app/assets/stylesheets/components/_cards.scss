@@ -12,12 +12,11 @@
   padding: 24px;
   margin: 10px 10px;
   width: 350px;
-  height: 700px;
+  height: 675px;
 }
 
 .card-img-top {
-  max-width: 250px;
-  max-height: 250px;
+  height: 250px;
   margin: 0 auto;
 }
 
@@ -46,6 +45,13 @@
   font-weight: 400;
   line-height: 1.5;
   margin: 0;
+}
+
+.text-truncate-description{
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .card-price{
