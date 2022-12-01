@@ -1,0 +1,10 @@
+<h1>Ajoutez votre avis!</h1>
+
+<%= simple_form_for([@restaurant, @review]) do |f| %>
+  <div class="form-inputs">
+    <%= f.input :comment %>
+    <%= f.input :rating, as: :numeric %>
+  </div>
+
+  <%= f.submit %>
+<% end %>
