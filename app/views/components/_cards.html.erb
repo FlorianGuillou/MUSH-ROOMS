@@ -18,7 +18,9 @@
                 <strong> ONLY : <%= mushroom.price %> Gold Coins </strong>
                 </p>
               <% else %>
+                <p class="card-text">
                 <strong> Price : <%= mushroom.price %> Gold Coins </strong>
+                </p>
               <% end %>
               </p>
               <%= link_to new_mushroom_booking_path(mushroom.id) do %>
