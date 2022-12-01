@@ -9,10 +9,12 @@
               <%= image_tag('champignon.jpg', :class => "card-img-top") %>
             <% end %>
             <div class="card-body">
+
               <h2 class="card-title"><%= link_to mushroom.name, mushroom_path(mushroom)%></h2>
               <p class="card-text text-truncate-description">
               <%= mushroom.description.truncate(200, separator: " ") %>
               </p>
+
               <br>
               <p class="card-text">
               <% if mushroom.price < 100 %>

@@ -54,18 +54,18 @@
       <div class="add-inputs my-3">
       <% if policy(@mushroom).edit? %>
         <div class="add-inputs  button-show-page">
-        <%= link_to "Edit this mushRoom", edit_mushroom_path(@mushroom), class:"btn btn-primary btn-lg  float-right" %>
-        <%= button_to "Destroy this mushRoom", @mushroom, class:"btn btn-danger btn-lg float-right mt-2", method: :delete if policy(@mushroom).destroy?%>
+        <%= link_to "Edit this mushRoom", edit_mushroom_path(@mushroom), class:"btn btn-primary btn-lg float-right custom-button" %>
+        <%= button_to "Destroy this mushRoom", @mushroom, class:"btn btn-danger btn-lg float-right mt-2 custom-button", method: :delete if policy(@mushroom).destroy?%>
         </div>
         <% else%>
         <div class="add-inputs">
-          <%= link_to "Rent this mushRoom", new_mushroom_booking_path(@mushroom.id), class: "btn btn-primary btn-lg  float-right mt-3" %>
+          <%= link_to "Rent this mushRoom", new_mushroom_booking_path(@mushroom.id), class: "btn btn-primary btn-lg float-right mt-3 custom-button" %>
       </div>
       <% end %>
     <% else %>
-      <div class="add-inputs">
-        <%= link_to "Login to rent", new_user_session_path, class: "btn btn-primary btn-lg  float-right" %>
-        <%= link_to "Register to rent", new_user_registration_path, class: "btn btn-primary btn-lg  float-right" %>
+      <div class="add-inputs  button-show-page">
+        <%= link_to "Login to rent", new_user_session_path, class: "btn btn-primary btn-lg float-right custom-button" %>
+        <%= link_to "Register to rent", new_user_registration_path, class: "btn btn-primary btn-lg float-right custom-button" %>
       </div>
     <% end %>
   </div>

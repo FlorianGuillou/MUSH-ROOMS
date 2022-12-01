@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
 
-  resources :bookings, only: [:index, :update]
+  resources :bookings, only: [:index, :update, :edit]
 
   get "/my-Mush", to: "mushrooms#mushs"
 end
