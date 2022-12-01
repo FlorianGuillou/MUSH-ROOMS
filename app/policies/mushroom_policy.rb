@@ -7,6 +7,10 @@ class MushroomPolicy < ApplicationPolicy
     true
   end
 
+  def mushs?
+    true
+  end
+
   def update?
     record.user == user
   end

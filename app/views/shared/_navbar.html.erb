@@ -26,6 +26,9 @@
           <li class="nav-item">
             <%= link_to "Mush-Booked", bookings_path, class: "nav-link" %>
           </li>
+          <li class="nav-item">
+            <%= link_to "MyMush", my_Mush_path, class: "nav-link" %>
+          </li>
           <li class="nav-item dropdown">
           <% if current_user.avatar.attached? %>
             <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   end
 
   resources :bookings, only: [:index]
+
+  get "/my-Mush", to: "mushrooms#mushs"
 end
