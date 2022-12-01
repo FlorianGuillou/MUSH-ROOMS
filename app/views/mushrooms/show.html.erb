@@ -69,4 +69,13 @@
       </div>
     <% end %>
   </div>
+
 </div>
+ <div class="card-large mt-4">
+    <h3>Reviews</h3>
+    <%  @mushroom.reviews.each do |review|%>
+    <h4><%= '⭐' * review.rating %></h4>
+    <p><%= review.comment %></p>
+
+    <% end %>
+  </div>

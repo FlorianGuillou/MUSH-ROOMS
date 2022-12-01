@@ -1,7 +1,8 @@
 class Review < ApplicationRecord
-  belongs_to :booking, dependent: :destroy
+  belongs_to :booking
 
   validates :rating, inclusion: { in: 1..5 }
+  validates :rating, presence: true
   validates :comment, presence: true
-  validates :conmment, length: { minimum: 8 }
+  validates :comment, length: { minimum: 8 }
 end
