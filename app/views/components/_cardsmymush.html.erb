@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <% @mushrooms.each do |mushroom| %>
+      <div class="col">
+          <div class="card mt-5">
+            <% if mushroom.photos.attached? %>
+              <%= cl_image_tag mushroom.photos.first.key, height: 250, class: "card-img-top" %>
+            <% else %>
+              <%= image_tag('champignon.jpg', :class => "card-img-top") %>
+            <% end %>
+            <div class="card-body">
+              <h2 class="card-title"><%= mushroom.name%></h2>
+              <p class="card-text text-truncate-description"><%= mushroom.description.truncate(200, separator: " ") %></p>
+              <br>
+              <p class="card-text">
+              <% if mushroom.price < 100 %>
+                <p class="text-success bg-danger text-center">
+                <strong> ONLY : <%= mushroom.price %> Gold Coins </strong>
+                </p>
+              <% else %>
+                <p class="card-text">
+                <strong> Price : <%= mushroom.price %> Gold Coins </strong>
+                </p>
+              <% end %>
+              </p>
+            </div>
+            <div class="add-inputs  button-show-page">
+              <%= link_to "Edit this mushRoom", edit_mushroom_path(mushroom), class:"btn btn-primary float-right custom-button" %>
+              <%= button_to "Destroy this mushRoom", mushroom, class:"btn btn-danger float-right mt-2 custom-button", method: :delete if policy(mushroom).destroy?%>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted"></small>
+              <% mushroom.bookings.each do |booking| %>
+                <% if booking.pending? %>
+                  <%= link_to edit_booking_path(booking)do %>
+                    <button class="btn btn-primary">Voir réservation</button>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+      </div>
+    <% end %>
+  </div>
+</div>

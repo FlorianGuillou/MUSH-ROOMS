@@ -26,9 +26,9 @@
             </div>
             <div class="card-footer">
               <small class="text-muted"></small>
-              <% if booking.status == "active" %>
+              <% if booking.status == "approuver" %>
                 <p>Votre MushRoom a été approuvé</p>
-              <% elsif booking.status == "declined" %>
+              <% elsif booking.status == "refuser" %>
                 <p>Votre MushRoom n'a pas été approuvé</p>
               <% else %>
                 <p>Votre MushRoom est en cours d'approbation</p>

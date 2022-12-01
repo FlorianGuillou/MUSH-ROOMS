@@ -32,7 +32,7 @@ class BookingsController < ApplicationController
 
   def edit
     authorize @booking
-    @booking.active!
+    @booking.approuver!
   end
 
   def update
