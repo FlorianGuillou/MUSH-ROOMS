@@ -39,10 +39,11 @@
                 </div>
               <% end %>
             </div>
-              <div class="card-footer">
-                <small class="text-muted"></small>
-                <p>No review yet !</p>
-                <%# ajouter la moyenne des notes de reviews dans le futur %>
+            <div class="card-footer">
+              <small class="text-muted"></small>
+              <h6><strong><%= mushroom.average %> </strong><%= '⭐' * mushroom.average %> </strong></h6>
+            <%# ajouter la moyenne des notes de reviews dans le futur %>
+           
               </div>
           </div>
       </div>
