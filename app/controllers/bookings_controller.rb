@@ -23,12 +23,15 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.user = current_user
     @booking.mushroom = @mushroom
-    @booking.active!
     if @booking.save
       redirect_to root_path, notice: 'Your MushROOM has been booked.'
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def update
+    @booking.active!
   end
 
   private
