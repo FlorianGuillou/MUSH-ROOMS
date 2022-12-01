@@ -1,0 +1,44 @@
+.custom-button {
+    background-image: linear-gradient(to right, #3498db 0%, #8e44ad  51%, #3498db  100%);
+    margin: 6px;
+    padding: 10px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 800;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 2px #222222;
+    border-radius: 30px;
+    border: 0px;
+    text-decoration: none;
+}
+
+.custom-button:hover {
+background-position: right center; /* change the direction of the change here */
+color: #fff;
+text-decoration: none;
+}
+
+.custom-button-header {
+    background-color: white;
+    margin: 6px;
+    padding: 10px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 800;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: #c13633;  
+    box-shadow: 0 0 2px #222222;
+    border-radius: 30px;
+    border: 0px;
+    text-decoration: none;
+}
+
+.custom-button-header:hover {
+background-position: right center; /* change the direction of the change here */
+color: #8e44ad;
+text-decoration: none;
+}
+
