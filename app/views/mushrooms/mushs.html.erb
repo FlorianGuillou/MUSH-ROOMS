@@ -15,6 +15,11 @@
               <p class="card-text"><%= mushroom.description.truncate(200, separator: " ") %></p>
               <br>
               <p class="card-text"><strong>Price : <%= mushroom.price %> Gold Coins</strong></p>
+              <% mushroom.bookings.each do |booking| %>
+                <% if booking.pending? %>
+                  <button class="btn btn-primary">Accepter reservation</button>
+                <% end %>
+              <% end %>
               </div>
             </div>
           </div>

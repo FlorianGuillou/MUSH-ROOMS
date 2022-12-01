@@ -30,6 +30,10 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+    @booking.active!
+  end
+
   private
 
   def set_booking
