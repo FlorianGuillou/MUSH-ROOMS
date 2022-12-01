@@ -73,9 +73,12 @@
 </div>
  <div class="card-large mt-4">
     <h3>Reviews</h3>
+    <br>
+    <h3><strong><%= @mushroom.average %> </strong><%= '⭐' * @mushroom.average %>    <strong><%= @mushroom.reviews.size %> commentaires</strong></h3>
+    <br>
     <%  @mushroom.reviews.each do |review|%>
     <h4><%= '⭐' * review.rating %></h4>
     <p><%= review.comment %></p>
-
+    <br>
     <% end %>
   </div>

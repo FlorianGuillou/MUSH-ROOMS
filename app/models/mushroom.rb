@@ -7,4 +7,15 @@ class Mushroom < ApplicationRecord
   validates :category, presence: true
   validates :color, presence: true
   validates :price, presence: true
+
+  def average
+    size = reviews.size
+    return size if size.zero?
+
+    sum = 0
+    reviews.each do |review|
+      sum += review.rating
+    end
+    return sum / size
+  end
 end
