@@ -11,6 +11,18 @@
   width: 40px;
 }
 
+.nav-link {
+  color: #8e44ad;
+  font-size: 1.25em;
+  font-weight: 600;
+  transition: 0.5s;
+}
+
+.active, .nav-link:hover {
+  color: #c13633;
+  font-weight: 600;
+}
+
 .logo-title{
   font-size: 1.5em;
   font-weight: 600;
