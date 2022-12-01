@@ -1,8 +1,8 @@
 class BookingsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   # skip_after_action :verify_policy_scoped, only: :index
-  before_action :set_booking, only: [:show]
-  before_action :set_mushroom, only: [:new, :create, :show]
+  before_action :set_booking, only: [:show, :update]
+  before_action :set_mushroom, only: [:new, :create, :show, :update]
 
   def index
     @bookings = Booking.where(user: current_user)
@@ -24,14 +24,24 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.mushroom = @mushroom
     if @booking.save
-      redirect_to root_path, notice: 'Your MushROOM has been booked.'
+      redirect_to root_path, notice: 'Ask for hosting sent!'
     else
       render :new, status: :unprocessable_entity
     end
   end
 
-  def update
+  def edit
+    authorize @booking
     @booking.active!
+  end
+
+  def update
+    authorize @booking
+    if @booking.update(booking_params)
+      redirect_to root_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   private
@@ -45,6 +55,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :comment, :mushroom_id, :user_id)
+    params.require(:booking).permit(:start_date, :end_date, :comment, :mushroom_id, :user_id, :status)
   end
 end
