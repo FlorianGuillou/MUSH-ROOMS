@@ -31,7 +31,12 @@ class MushroomsController < ApplicationController
   end
 
   def update
-    if @mushroom.update(mushroom_params)
+    if @mushroom.update(edit_mushroom_params)
+      if params[:mushroom][:photos].present?
+        params[:mushroom][:photos].each do |photo|
+          @mushroom.photos.attach(photo)
+        end
+      end
       redirect_to @mushroom, notice: "Your MushRoom was successfully updated."
     else
       render :edit, status: :unprocessable_entity
@@ -48,6 +53,10 @@ class MushroomsController < ApplicationController
   def set_mushroom
     @mushroom = Mushroom.find(params[:id])
     authorize @mushroom
+  end
+
+  def edit_mushroom_params
+    params.require(:mushroom).permit(:category, :color, :price, :description, :address, :name, :trippy, :eatable)
   end
 
   def mushroom_params

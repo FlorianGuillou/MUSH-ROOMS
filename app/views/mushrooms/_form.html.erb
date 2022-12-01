@@ -1,19 +1,21 @@
-<%= simple_form_for(@mushroom) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<div class="container">
+  <%= simple_form_for(@mushroom) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :name, placeholder: "Name" %>
-    <%= f.input :category, placeholder: "Catégorie" %>
-    <%= f.input :color, placeholder: "Couleur" %>
-    <%= f.input :address, placeholder: "Location" %>
-    <%= f.input :trippy, :label => 'Trippy', :value => true %>
-    <%= f.input :eatable, :label => 'Eatable', :value => true %>
-    <%= f.input :description, placeholder: "Description" %>
-    <%= f.input :price, placeholder: "Price" %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  </div>
+    <div class="form-inputs">
+      <%= f.input :name, placeholder: "Name" %>
+      <%= f.input :category, placeholder: "Catégorie" %>
+      <%= f.input :color, placeholder: "Couleur" %>
+      <%= f.input :address, placeholder: "Location" %>
+      <%= f.input :trippy, :label => 'Trippy', :value => true %>
+      <%= f.input :eatable, :label => 'Eatable', :value => true %>
+      <%= f.input :description, placeholder: "Description" %>
+      <%= f.input :price, placeholder: "Price" %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    </div>
 
-  <%= f.button :submit, "Update MushRoom", class: "logbtn" %>
+    <%= f.button :submit, "Update MushRoom", class: "logbtn custom-button" %>
 
-<% end %>
+  <% end %>
+</div>
