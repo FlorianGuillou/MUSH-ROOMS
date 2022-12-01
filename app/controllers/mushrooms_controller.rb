@@ -4,6 +4,7 @@ class MushroomsController < ApplicationController
 
   def mushs
     @mushrooms = Mushroom.where(user: current_user)
+    @bookings = Booking.where(user: all_users)
     authorize @mushrooms
   end
 
