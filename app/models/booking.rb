@@ -6,6 +6,6 @@ class Booking < ApplicationRecord
   enum status: {
     pending: 0,
     active: 1,
-    archived: 2
+    declined: 2
   }
 end

@@ -9,8 +9,12 @@
               <%= image_tag('champignon.jpg', :class => "card-img-top") %>
             <% end %>
             <div class="card-body">
+
               <h2 class="card-title"><%= link_to mushroom.name, mushroom_path(mushroom)%></h2>
-              <p class="card-text text-truncate-description"><%= mushroom.description.truncate(200, separator: " ") %></p>
+              <p class="card-text text-truncate-description">
+              <%= mushroom.description.truncate(200, separator: " ") %>
+              </p>
+
               <br>
               <p class="card-text">
               <% if mushroom.price < 100 %>
@@ -26,17 +30,21 @@
               <%= link_to new_mushroom_booking_path(mushroom.id) do %>
                 <div class="text-end">
                   <div class="card-body text-center">
-                    <button class="custom-button">Mush Me</button>
+                  <% if policy(mushroom).edit? %>
+                    <%= link_to "Edit", edit_mushroom_path(mushroom), class: "custom-button" %>
+                  <% else%>
+                    <%= link_to "Mush Me", new_mushroom_booking_path(mushroom.id), class: "custom-button" if policy(mushroom).new? %>
+                  <% end %>
+                  </div>
                 </div>
-              </div>
               <% end %>
-
             </div>
             <div class="card-footer">
               <small class="text-muted"></small>
               <h6><strong><%= mushroom.average %> </strong><%= '⭐' * mushroom.average %> </strong></h6>
             <%# ajouter la moyenne des notes de reviews dans le futur %>
-            </div>
+           
+              </div>
           </div>
       </div>
     <% end %>

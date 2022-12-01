@@ -11,5 +11,6 @@ Rails.application.routes.draw do
     resources :reviews, only: %i[new create]
   end
 
+
   get "/my-Mush", to: "mushrooms#mushs"
 end

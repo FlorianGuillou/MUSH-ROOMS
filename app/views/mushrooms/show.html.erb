@@ -1,3 +1,4 @@
+<div>
 <div class="container pt-5">
   <div class="row card-large">
     <div class="col-md-6 col-sm-12">
@@ -49,28 +50,29 @@
   <div class="row card-large mt-4">
     <div class="col"> <span class="card-subtitle"> Color: </span><%= @mushroom.color %></div>
     <div class="col"> <span class="card-subtitle">Owner: </span><%= @mushroom.user.name %></div>
-    <div class="col"> <span class="card-subtitle">Eatable? </span><%= @mushroom.eatable %></div>
+    <div class="col"> <span class="card-subtitle">Eatable: </span><%= display(@mushroom.eatable) %></div>
     <% if user_signed_in? %>
       <div class="add-inputs my-3">
       <% if policy(@mushroom).edit? %>
-        <div class="add-inputs  button-show-page">
-        <%= link_to "Edit this mushRoom", edit_mushroom_path(@mushroom), class:"btn btn-primary btn-lg  float-right" %>
-        <%= button_to "Destroy this mushRoom", @mushroom, class:"btn btn-danger btn-lg float-right mt-2", method: :delete if policy(@mushroom).destroy?%>
+        <div class="add-inputs button-show-page">
+        <%= link_to "Edit this mushRoom", edit_mushroom_path(@mushroom), class:"btn btn-primary btn-lg float-right custom-button" %>
+        <%= button_to "Destroy this mushRoom", @mushroom, class:"btn btn-danger btn-lg float-right mt-2 custom-button", method: :delete if policy(@mushroom).destroy?%>
         </div>
         <% else%>
         <div class="add-inputs">
-          <%= link_to "Rent this mushRoom", new_mushroom_booking_path(@mushroom.id), class: "btn btn-primary btn-lg  float-right mt-3" %>
+          <%= link_to "Rent this mushRoom", new_mushroom_booking_path(@mushroom.id), class: "btn btn-primary btn-lg float-right mt-3 custom-button" %>
       </div>
       <% end %>
     <% else %>
-      <div class="add-inputs">
-        <%= link_to "Login to rent", new_user_session_path, class: "btn btn-primary btn-lg  float-right" %>
-        <%= link_to "Register to rent", new_user_registration_path, class: "btn btn-primary btn-lg  float-right" %>
+      <div class="add-inputs button-show-page">
+        <%= link_to "Login to rent", new_user_session_path, class: "btn btn-primary btn-lg float-right custom-button" %>
+        <%= link_to "Register to rent", new_user_registration_path, class: "btn btn-primary btn-lg float-right custom-button" %>
       </div>
     <% end %>
   </div>
 
 </div>
+
  <div class="card-large mt-4">
     <h3>Reviews</h3>
     <br>
@@ -82,3 +84,6 @@
     <br>
     <% end %>
   </div>
+
+</div>
+

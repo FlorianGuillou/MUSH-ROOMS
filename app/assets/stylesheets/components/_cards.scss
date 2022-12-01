@@ -32,6 +32,7 @@
   font-size: 24px;
   font-weight: 600;
   margin-bottom: 16px;
+  text-decoration: none;
 }
 
 .card-subtitle{
@@ -65,4 +66,8 @@
   font-weight: 400;
   line-height: 1.5;
   margin: 0;
+}
+
+h2 a {
+  color: #8e44ad;
 }
