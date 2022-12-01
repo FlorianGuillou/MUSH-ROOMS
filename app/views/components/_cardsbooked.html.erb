@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <% @bookings.each do |booking| %>
+      <div class="col">
+          <div class="card mt-5">
+            <% if booking.mushroom.photos.attached? %>
+              <%= cl_image_tag booking.mushroom.photos.first.key, height: 250, class: "card-img-top" %>
+            <% else %>
+              <%= image_tag('champignon.jpg', :class => "card-img-top") %>
+            <% end %>
+            <div class="card-body">
+              <h2 class="card-title"><%= booking.mushroom.name%></h2>
+              <p class="card-text text-truncate-description"><%= booking.mushroom.description.truncate(200, separator: " ") %></p>
+              <br>
+              <p class="card-text">
+              <% if booking.mushroom.price < 100 %>
+                <p class="text-success bg-danger text-center">
+                <strong> ONLY : <%= booking.mushroom.price %> Gold Coins </strong>
+                </p>
+              <% else %>
+                <p class="card-text">
+                <strong> Price : <%= booking.mushroom.price %> Gold Coins </strong>
+                </p>
+              <% end %>
+              </p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted"></small>
+              <% if booking.status == "active" %>
+                <p>Votre MushRoom a été approuvé</p>
+              <% elsif booking.status == "declined" %>
+                <p>Votre MushRoom n'a pas été approuvé</p>
+              <% else %>
+                <p>Votre MushRoom est en cours d'approbation</p>
+              <% end %>
+            </div>
+          </div>
+      </div>
+    <% end %>
+  </div>
+</div>
