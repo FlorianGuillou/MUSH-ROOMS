@@ -2,11 +2,37 @@
   <div class="row card-large">
     <div class="col-md-6 col-sm-12">
       <% if @mushroom.photos.attached? %>
-      <% @mushroom.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: "card-img-top" %>
-      <% end %>
-     <% else %>
-        <% image_tag('champignon.jpg', :class => "card-img-top") %>
+        <% if @mushroom.photos.count > 1 %>
+          <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+            <% @mushroom.photos.each do |photo| %>
+              <div class="carousel-item active">
+                <%= cl_image_tag photo.key, height: 400, class: "d-block w-100" %>
+              </div>
+              <% end %>
+            </div>
+            <button class="carousel-control-prev text-info" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        <% else %>
+          <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+            <% @mushroom.photos.each do |photo| %>
+              <div class="carousel-item active">
+                <%= cl_image_tag photo.key, height: 400, class: "d-block w-100" %>
+              </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <%= image_tag('champignon.jpg', :class => "card-img-top") %>
       <% end %>
     </div>
     <div class="col-md-6 col-sm-12 p5">
@@ -17,7 +43,7 @@
         <p class="card-title mt-2"><%= @mushroom.category %></p>
         <p class="card-title mt-4">A little bit more about this mushRoom</p>
         <p class="card-description mb-4"><%= @mushroom.description %></p>
-    </div>
+      </div>
    </div>
   </div>
   <div class="row card-large mt-4">
@@ -34,7 +60,7 @@
         <% else%>
         <div class="add-inputs">
           <%= link_to "Rent this mushRoom", new_mushroom_booking_path(@mushroom.id), class: "btn btn-primary btn-lg  float-right mt-3" %>
-      </div> 
+      </div>
       <% end %>
     <% else %>
       <div class="add-inputs">
