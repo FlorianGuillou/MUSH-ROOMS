@@ -26,7 +26,7 @@
               <%= link_to new_mushroom_booking_path(mushroom.id) do %>
                 <div class="text-end">
                   <div class="card-body text-center">
-                    <button class="custom-button">Mush Me</button>
+                   <%= link_to "Mush Me", new_mushroom_booking_path(mushroom.id), class: "custom-button" if policy(mushroom).new? %>
                 </div>
               </div>
               <% end %>
