@@ -26,7 +26,7 @@
               <div class="card-text">
                 <%# Rajouter une condition %>
                 <% if booking.approuver? %>
-                  <%= link_to "Review me",  new_booking_review_path(booking.id), class: "btn btn-primary btn-lg float-right custom-button" %>
+                  <%= link_to "Review me",  new_booking_review_path(booking.id), class: "custom-button" %>
                 <% end %>
               </div>
             </div>
