@@ -16,6 +16,6 @@ class Mushroom < ApplicationRecord
     reviews.each do |review|
       sum += review.rating
     end
-    return sum / size
+    return (sum / size.to_f).round(2)
   end
 end

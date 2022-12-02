@@ -23,6 +23,10 @@
                 </p>
               <% end %>
               </p>
+              <div class="card-text">
+                <%# Rajouter une condition %>
+                <%= link_to "Review this mushRoom",  new_booking_review_path(booking.id), class: "btn btn-primary btn-lg float-right custom-button" %>
+              </div>
             </div>
             <div class="card-footer">
               <small class="text-muted"></small>
