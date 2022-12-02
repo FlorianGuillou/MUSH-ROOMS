@@ -25,14 +25,16 @@
               </p>
               <div class="card-text">
                 <%# Rajouter une condition %>
-                <%= link_to "Review this mushRoom",  new_booking_review_path(booking.id), class: "btn btn-primary btn-lg float-right custom-button" %>
+                <% if booking.approuver? %>
+                  <%= link_to "Review me",  new_booking_review_path(booking.id), class: "btn btn-primary btn-lg float-right custom-button" %>
+                <% end %>
               </div>
             </div>
             <div class="card-footer">
               <small class="text-muted"></small>
-              <% if booking.status == "approuver" %>
+              <% if booking.approuver? %>
                 <p>Votre MushRoom a été approuvé</p>
-              <% elsif booking.status == "refuser" %>
+              <% elsif booking.refuser? %>
                 <p>Votre MushRoom n'a pas été approuvé</p>
               <% else %>
                 <p>Votre MushRoom est en cours d'approbation</p>
