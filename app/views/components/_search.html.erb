@@ -1,10 +1,11 @@
 <div class="container text-center">
   <div class="row mt-2">
     <div class="card-search">
-    <%= form_with url: root_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search by name"%>
-      <%#= form.select :eatable, ["Eatable", "Not Eatable"] %>
-      <%#= form.select :eatable, [["Eatable", "Not Eatable"]] params[:eatable], class: "form-control", placeholder: "Eatable"%>
+    <%= form_with url: root_path, method: :get, class: "d-flex" do |form|%>
+      <%= form.text_field :query, { value:params[:query], class: "form-control", placeholder: "Search by name" }%>
+      <%#= form.check_box :eatable%>
+      <%#= form.check_box :trippy value: "1"  %>
+      <%#= form.select :query, %w[Truffle Puffball Chanterelles Bolete] %>
       <%= submit_tag "Search", class: "custom-button" %>
     <% end %>
     </div>

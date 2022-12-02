@@ -11,13 +11,17 @@ class PagesController < ApplicationController
     @mushrooms = policy_scope(Mushroom)
     end
 
-    # if params[:eatable].present?
-    #   sql_eatable = <<~SQL
-    #   mushrooms.eatable ILIKE :eatable
-    # SQL
-    #   @mushrooms = Mushroom.where(sql_eatable, eatable: "%#{params[:eatable]}%")
-    # else
-    #   @mushrooms = policy_scope(Mushroom)
+    # # if params[:query].present?
+    # # #   sql_query = <<~SQL
+    # # #   mushrooms.category :query
+    # # # SQL
+    # #   @mushrooms=Mushroom.all
+    # #   raise
+    # #   # @mushrooms = Mushroom.find_by_category("%#{params[:query]}%")
+
+    # # else
+    # #   @mushrooms = policy_scope(Mushroom)
+    # #   raise
     # end
   end
 end
