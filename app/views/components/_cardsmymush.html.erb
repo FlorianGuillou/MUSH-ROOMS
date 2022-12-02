@@ -24,9 +24,11 @@
               <% end %>
               </p>
             </div>
-            <div class="add-inputs  button-show-page">
-              <%= link_to "Edit this mushRoom", edit_mushroom_path(mushroom), class:"btn btn-primary float-right custom-button" %>
-              <%= button_to "Destroy this mushRoom", mushroom, class:"btn btn-danger float-right mt-2 custom-button", method: :delete if policy(mushroom).destroy?%>
+            <div class="text-center">
+              <%= link_to "Edit mushRoom", edit_mushroom_path(mushroom), class:"custom-button" %>
+              <div class="card-body text-center">
+              <%= button_to "Delete mushRoom", mushroom, class:"custom-button", method: :delete if policy(mushroom).destroy?%>
+              </div>
             </div>
             <div class="card-footer">
               <small class="text-muted"></small>
