@@ -2,26 +2,31 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
   def home
+    # if params[:query].present?
+    #   sql_query = <<~SQL
+    #     mushrooms.name ILIKE :query
+    #   SQL
+    #   @mushrooms = Mushroom.where(sql_query, query: "%#{params[:query]}%")
+    # else
+    #   @mushrooms = policy_scope(Mushroom)
+    # end
+
     if params[:query].present?
-      sql_query = <<~SQL
-      mushrooms.name ILIKE :query
-    SQL
-      @mushrooms = Mushroom.where(sql_query, query: "%#{params[:query]}%")
+      @mushrooms = Mushroom.where(category: "#{params[:query]}")
     else
-    @mushrooms = policy_scope(Mushroom)
+      @mushrooms = policy_scope(Mushroom)
     end
 
-    # # if params[:query].present?
-    # # #   sql_query = <<~SQL
-    # # #   mushrooms.category :query
-    # # # SQL
-    # #   @mushrooms=Mushroom.all
-    # #   raise
-    # #   # @mushrooms = Mushroom.find_by_category("%#{params[:query]}%")
+    # if params[:trippy] == "Yes"
+    #   @mushrooms = Mushroom.where(trippy: true)
+    # else
+    #   @mushrooms = policy_scope(Mushroom)
+    # end
 
-    # # else
-    # #   @mushrooms = policy_scope(Mushroom)
-    # #   raise
+    # if params[:eatable] == "Yes"
+    #   @mushrooms = Mushroom.where(eatable: true)
+    # else
+    #   @mushrooms = policy_scope(Mushroom)
     # end
   end
 end
