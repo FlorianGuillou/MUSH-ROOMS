@@ -1,3 +1,4 @@
+<div>
 <div class="container pt-5">
   <div class="row card-large">
     <div class="col-md-6 col-sm-12">
@@ -86,11 +87,13 @@
     <br>
     <%  @mushroom.reviews.each do |review| %>
     <% reviewer = Booking.find(review.booking_id).user_id %>
-    <%= User.find(reviewer).name %>
+    <p><%= User.find(reviewer).name %></p>
+    <div>
     <%= cl_image_tag User.find(reviewer).avatar.key, class: "avatar" %>
+    </div>
       <h4><%= '⭐' * review.rating %></h4>
       <p><%= review.comment %></p>
       <br>
     <% end %>
-
+</div>
 </div>
