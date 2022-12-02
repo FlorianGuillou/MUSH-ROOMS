@@ -30,12 +30,12 @@
               <%= button_to "Delete mushRoom", mushroom, class:"custom-button", method: :delete if policy(mushroom).destroy?%>
               </div>
             </div>
-            <div class="card-footer">
+            <div class="card-footer text-center">
               <small class="text-muted"></small>
               <% mushroom.bookings.each do |booking| %>
                 <% if booking.pending? %>
                   <%= link_to edit_booking_path(booking)do %>
-                    <button class="btn btn-primary">Voir réservation</button>
+                    <button class="custom-button">Voir réservation</button>
                   <% end %>
                 <% end %>
               <% end %>
