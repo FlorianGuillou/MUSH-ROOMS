@@ -8,8 +8,8 @@
             <% else %>
               <%= image_tag('champignon.jpg', :class => "card-img-top") %>
             <% end %>
+            <%= cl_image_tag User.find(mushroom.user_id).avatar.key, class: "avatar" %>
             <div class="card-body">
-
               <h2 class="card-title"><%= link_to mushroom.name, mushroom_path(mushroom)%></h2>
               <p class="card-text text-truncate-description">
               <%= mushroom.description.truncate(200, separator: " ") %>
@@ -43,7 +43,7 @@
               <small class="text-muted"></small>
               <h6><strong><%= mushroom.average %> </strong><%= '⭐' * mushroom.average %> </strong></h6>
             <%# ajouter la moyenne des notes de reviews dans le futur %>
-           
+
               </div>
           </div>
       </div>

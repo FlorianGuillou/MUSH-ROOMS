@@ -39,6 +39,7 @@
     <div class="col-md-6 col-sm-12 p5">
       <div class="card-title">
         <h1><%= @mushroom.name %></h1>
+        <%= cl_image_tag User.find(@mushroom.user_id).avatar.key, class: "avatar" %>
         <p class="card-text">Address : <%= @mushroom.address %></p>
         <p class="card-price mt-2"><%= @mushroom.price %> Gold Coins</p>
         <p class="card-title mt-2"><%= @mushroom.category %></p>
@@ -49,7 +50,9 @@
   </div>
   <div class="row card-large mt-4">
     <div class="col"> <span class="card-subtitle"> Color: </span><%= @mushroom.color %></div>
+
     <div class="col"> <span class="card-subtitle">Owner: </span><%= @mushroom.user.name %></div>
+    <div class="col"> <span class="card-subtitle">Trippy: </span><%= display(@mushroom.trippy) %></div>
     <div class="col"> <span class="card-subtitle">Eatable: </span><%= display(@mushroom.eatable) %></div>
     <% if user_signed_in? %>
       <div class="add-inputs my-3">
@@ -86,4 +89,3 @@
   </div>
 
 </div>
-
