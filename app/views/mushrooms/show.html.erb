@@ -54,7 +54,6 @@
   </div>
   <div class="row card-large mt-4">
     <div class="col"> <span class="card-subtitle"> Color: </span><%= @mushroom.color %></div>
-    <div class="col"> <span class="card-subtitle">Owner: </span><%= @mushroom.user.name %></div>
     <div class="col"> <span class="card-subtitle">Trippy: </span><%= display(@mushroom.trippy) %></div>
     <div class="col"> <span class="card-subtitle">Eatable: </span><%= display(@mushroom.eatable) %></div>
     <% if user_signed_in? %>
