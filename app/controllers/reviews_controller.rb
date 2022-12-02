@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
     authorize @review
 
     if @review.save
-      redirect_to mushroom_path(@booking.mushroom)
+      redirect_to root_path, notice: "Thank you, your review has been completed! Come back to smurf with us!"
     else
       render :new, status: :unprocessable_entity
     end
