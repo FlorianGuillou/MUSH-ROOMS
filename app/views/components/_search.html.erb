@@ -1,11 +1,14 @@
 <div class="container text-center">
-  <div class="row mt-2">
+  <div class="d-flex justify-content-around align-items-center">
     <div class="card-search">
+    <p>Choisissez une catégorie de Mush</p>
     <%= form_with url: root_path, method: :get, class: "d-flex" do |form|%>
       <%# <%= form.text_field :query, { value:params[:query], class: "form-control", placeholder: "Search by name" }%>
       <%# <%= form.check_box :eatable, label: "Eatable"  %>
       <%#= form.check_box :trippy value: "1"  %>
-      <%= form.select :query, [" ", "Truffle", "Puffball", "Chanterelles", "Bolete"]  %>
+      <%# <div> %>
+        <%= form.select :query, [" ", "Truffle", "Puffball", "Chanterelles", "Bolete"]  %>
+      <%# </div> %>
       <%# <%= form.select :trippy, [" ", "Yes", "No"]  %>
       <%# <%= form.select :eatable, [" ", "Yes", "No"]  %>
       <%= submit_tag "Search", class: "custom-button" %>
