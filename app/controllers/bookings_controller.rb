@@ -32,7 +32,7 @@ class BookingsController < ApplicationController
 
   def edit
     authorize @booking
-    # @booking.approuver!
+    @user = User.find(@booking.user_id)
   end
 
   def update
