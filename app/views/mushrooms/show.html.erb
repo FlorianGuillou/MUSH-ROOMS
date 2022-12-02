@@ -78,22 +78,19 @@
 
 </div>
 
-<div class="container pt-5">
-  <div class="row card-large">
-      <div class="col-md-6 col-sm-12">
-        <div class="card-large mt-4">
-              <h3>Reviews</h3>
-              <br>
-              <h3><strong><%= @mushroom.average %> </strong><%= '⭐' * @mushroom.average %>    <strong><%= @mushroom.reviews.size %> commentaires</strong></h3>
-              <br>
-              <%  @mushroom.reviews.each do |review|%>
-              <% reviewer = Booking.find(review.booking_id).user_id %>
-              <%= User.find(reviewer).name %>
-              <%= cl_image_tag User.find(reviewer).avatar.key, class: "avatar" %>
-              <h4><%= '⭐' * review.rating %></h4>
-              <p><%= review.comment %></p>
-              <br>
-              <% end %>
+<%# section reviews %>
+<div class="row card-large mt-4">
+    <h3><strong>Reviews</strong></h3>
+    <br>
+    <h3><strong><%= @mushroom.average %> </strong><%= '⭐' * @mushroom.average %>    <strong><%= @mushroom.reviews.size %> commentaires</strong></h3>
+    <br>
+    <%  @mushroom.reviews.each do |review| %>
+    <% reviewer = Booking.find(review.booking_id).user_id %>
+    <%= User.find(reviewer).name %>
+    <%= cl_image_tag User.find(reviewer).avatar.key, class: "avatar" %>
+      <h4><%= '⭐' * review.rating %></h4>
+      <p><%= review.comment %></p>
+      <br>
+    <% end %>
 
-  </div>
 </div>
