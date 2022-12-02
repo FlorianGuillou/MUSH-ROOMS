@@ -1,16 +1,10 @@
 .mymush {
-  text-align: center;
-  padding: 20px;
-  border: 1px solid black;
-  background-image: asset-url("trippymush.webp");
-  background-position: center;
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  background-size: cover;
-  width: 400px;
-  color: #E56638;
-  font-size: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 70px;
+  font-weight: 600;
+  color: #fdfdfe;
+  text-shadow: 0px 0px 5px #FF1FD2, 0px 0px 10px #FF1FD2, 0px 0px 10px #FF1FD2,
+    0px 0px 20px #FF1FD2;
 }
