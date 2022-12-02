@@ -1,0 +1,23 @@
+.card-renter {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  background: white;
+  padding: 8px 16px;
+  border: 1px solid rgb(235,235,235);
+}
+
+.card-renter .card-renter-content {
+  flex-grow: 1;
+  padding: 0 24px;
+}
+
+.card-renter p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+#date {
+  color: black;
+  font-weight: bold;
+}
