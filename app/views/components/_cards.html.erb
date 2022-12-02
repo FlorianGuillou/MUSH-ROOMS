@@ -8,7 +8,9 @@
             <% else %>
               <%= image_tag('champignon.jpg', :class => "card-img-top") %>
             <% end %>
-            <%= cl_image_tag User.find(mushroom.user_id).avatar.key, class: "avatar" %>
+            <div class="avatar-card-home">
+              <%= cl_image_tag User.find(mushroom.user_id).avatar.key, class: "avatar" %>
+            </div>
             <div class="card-body">
               <h2 class="card-title"><%= link_to mushroom.name, mushroom_path(mushroom)%></h2>
               <p class="card-text text-truncate-description">
